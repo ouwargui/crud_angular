@@ -35,3 +35,13 @@ export const PageHeader = styled.a`
     margin: 40px 0;
     color: inherit;
 `;
+
+export const ForgotAccount = styled.span`
+    display: block;
+    margin-top: 40px;
+    color: #888888;
+    font-size: 14px;
+    p {
+        padding: 10px;
+    }
+`;

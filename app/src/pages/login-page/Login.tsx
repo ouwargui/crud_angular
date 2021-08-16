@@ -1,8 +1,9 @@
 import React from "react";
 import Input from "../../components/inputs/Input";
-import {Container, Content, LoginForm, LoginTitle, PageHeader} from "./styles";
+import {Container, Content, ForgotAccount, LoginForm, LoginTitle, PageHeader} from "./styles";
 import {HiOutlineKey, HiOutlineMail} from "react-icons/hi";
 import Button from "../../components/buttons/Button";
+import {Link} from "react-router-dom";
 
 const Login: React.FC = () => {
     return (
@@ -11,10 +12,14 @@ const Login: React.FC = () => {
             <Content>
                 <LoginTitle>Faça seu login</LoginTitle>
                 <LoginForm>
-                    <Input icon={HiOutlineMail} type="text" title="Login" placeholder="nome@email.com"></Input>
+                    <Input icon={HiOutlineMail} type="text" title="Login" placeholder="Email"></Input>
                     <Input icon={HiOutlineKey} type="password" title="Senha" placeholder="Senha"></Input>
-                    <Button text="Login" full={true}></Button>
+                    <Button type="submit" text="Entrar" full={true}></Button>
                 </LoginForm>
+                <ForgotAccount>
+                    <p><Link to="/">Esqueceu a senha?</Link></p>
+                    <p><Link to="/signup">Criar nova conta</Link></p>
+                </ForgotAccount>
             </Content>
         </Container>
     )
