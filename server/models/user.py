@@ -17,6 +17,15 @@ class UserModel(db.Model):
     def to_json(self):
         return {"name": self.name, "email": self.email, "password": self.password}
 
+    def password_check(self, password):
+        if (self.password == password):
+            return True
+        return False
+
+    @classmethod
+    def find_by_email(cls, email) -> "UserModel":
+        return cls.query.filter_by(email=email).first()
+
     @classmethod
     def find_all(cls) -> List["UserModel"]:
         return cls.query.all()
