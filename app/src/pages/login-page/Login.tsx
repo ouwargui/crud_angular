@@ -17,7 +17,7 @@ const Login: React.FC = () => {
                     <Button type="submit" text="Entrar" full={true}></Button>
                 </LoginForm>
                 <ForgotAccount>
-                    <p><Link to="/">Esqueceu a senha?</Link></p>
+                    <p><Link to="/reset-password">Esqueceu a senha?</Link></p>
                     <p><Link to="/signup">Criar nova conta</Link></p>
                 </ForgotAccount>
             </Content>
