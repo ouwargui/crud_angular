@@ -8,6 +8,7 @@ export interface InputParams {
   type?: string;
   icon: IconType;
   onValueChange: any;
+  value: string;
 }
 
 const Input: React.FC<InputParams> = ({
@@ -16,6 +17,7 @@ const Input: React.FC<InputParams> = ({
   type,
   placeholder,
   onValueChange,
+  value,
 }) => {
   return (
     <InputGroup>
@@ -23,6 +25,7 @@ const Input: React.FC<InputParams> = ({
         {React.createElement(icon)} {title}
       </InputTitle>
       <StyledInput
+        value={value}
         onChange={(newValue) => onValueChange(newValue)}
         type={type}
         placeholder={placeholder}

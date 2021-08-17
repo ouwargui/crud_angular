@@ -1,4 +1,5 @@
-from flask import Flask, Blueprint, jsonify
+from flask import Flask, Blueprint, request
+from flask.wrappers import Response
 from flask_restful import Api
 from database.db import db
 
@@ -15,6 +16,14 @@ app.config['PROPAGATE_EXCEPTIONS'] = True
 @app.before_first_request
 def create_tables():
     db.create_all()
+
+@app.after_request
+def after_request(response: Response):
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    response.headers.add('Access-Control-Allow-Headers', "*")
+    response.headers.add('Access-Control-Allow-Methods', "*")
+    response.mimetype = 'application/json'
+    return response
 
 
 api.add_resource(User, '/user')

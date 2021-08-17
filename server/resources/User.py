@@ -1,4 +1,4 @@
-from flask import json, request, Response
+from flask import json, request, Response, jsonify, make_response
 from flask_restful import Resource
 
 from models.user import UserModel
@@ -22,8 +22,9 @@ class UserList(Resource):
         return Response(json.dumps(user_list_json))
 
 class UserAuthentication(Resource):
-    def get(self):
+    def post(self):
         data = request.get_json(force=True)
+
         email = data['email']
         password = data['password']
 
@@ -32,5 +33,7 @@ class UserAuthentication(Resource):
             check = person.password_check(password)
         else:
             check = False
+        
+        response = make_response(jsonify(status=200, success=check).data)
 
-        return Response(json.dumps({'status': 200, 'success': check}))
+        return response
