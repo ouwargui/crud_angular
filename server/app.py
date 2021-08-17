@@ -1,6 +1,6 @@
 from flask import Flask, Blueprint, jsonify
 from flask_restful import Api
-from db import db
+from database.db import db
 
 from resources.User import User, UserList
 
