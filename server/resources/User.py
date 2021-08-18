@@ -10,16 +10,28 @@ class User(Resource):
         email = data['email']
         password = data['password']
 
+        email_check = UserModel.find_by_email(email)
+        
+        if (email_check):
+            response = make_response(jsonify(status=200, success=False))
+            
+            return response
+
         person = UserModel(name=name, email=email, password=password)
         person.save_to_db()
 
-        return Response(json.dumps({'success': 200}))
+        response = make_response(jsonify(status=200, success=True))
+
+        return response
 
 class UserList(Resource):
     def get(self):
         user_list = UserModel.find_all()
         user_list_json = [user.to_json() for user in user_list]
-        return Response(json.dumps(user_list_json))
+
+        response = make_response(jsonify(status=200, success=True, user_list=user_list_json))
+
+        return response
 
 class UserAuthentication(Resource):
     def post(self):
@@ -34,7 +46,7 @@ class UserAuthentication(Resource):
         else:
             check = False
         
-        response = make_response(jsonify(status=200, success=check).data)
+        response = make_response(jsonify(status=200, success=check))
 
         return response
 
@@ -52,6 +64,6 @@ class UpdateUser(Resource):
         else:
             check = False
 
-        response = make_response(jsonify(status=200, success=check).data)
+        response = make_response(jsonify(status=200, success=check))
 
         return response
