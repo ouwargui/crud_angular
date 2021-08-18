@@ -37,3 +37,21 @@ class UserAuthentication(Resource):
         response = make_response(jsonify(status=200, success=check).data)
 
         return response
+
+class UpdateUser(Resource):
+    def post(self):
+        data = request.get_json(force=True)
+
+        email = data['email']
+        password = data['password']
+
+        person = UserModel.find_by_email(email)
+        if (person):
+            UserModel.update_password(email, password)
+            check = True
+        else:
+            check = False
+
+        response = make_response(jsonify(status=200, success=check).data)
+
+        return response

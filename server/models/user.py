@@ -30,6 +30,12 @@ class UserModel(db.Model):
     def find_all(cls) -> List["UserModel"]:
         return cls.query.all()
 
+    @classmethod
+    def update_password(cls, email, password) -> None:
+        user = cls.query.filter_by(email=email).first()
+        user.password = password
+        db.session.commit()
+
     def save_to_db(self) -> None:
         db.session.add(self)
         db.session.commit()

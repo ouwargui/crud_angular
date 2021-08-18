@@ -51,7 +51,12 @@ const Login: React.FC = () => {
             placeholder="Senha"
           />
           {checkAuth === false && <p>Senha incorreta</p>}
-          <Button onClickSubmit={handleSubmit} text="Entrar" full />
+          <Button
+            onClickSubmit={handleSubmit}
+            type="submit"
+            text="Entrar"
+            full
+          />
         </LoginForm>
         <ForgotAccount>
           <p>
