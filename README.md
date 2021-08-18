@@ -14,6 +14,6 @@ Abra [http://localhost:3000](http://localhost:3000) para vê-lo no navegador.
 A página vai recarregar se você fazer edições.\
 Você vai ver erros de Lint no console.
 
-### `python main.py` na pasta `src`
+### `python app.py` na pasta `src`
 
 Roda o back-end no ambiente de desenvolvimento.
