@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import {HiOutlineKey, HiOutlineMail} from 'react-icons/hi';
 import Input from '../../components/inputs/Input';
 import {
@@ -16,12 +16,13 @@ import {userAuthenticate} from '../../services/user';
 const Login: React.FC = () => {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
-  const [checkAuth, setCheckAuth] = useState(false);
+  const [checkAuth, setCheckAuth] = useState<boolean>();
+  const history = useHistory();
 
   const handleSubmit = () => {
     userAuthenticate(login, password).then((response: any) => {
       setCheckAuth(response.data.success);
-      console.log(checkAuth);
+      if (response.data.success) history.push('/home');
     });
   };
 
@@ -49,6 +50,7 @@ const Login: React.FC = () => {
             title="Senha"
             placeholder="Senha"
           />
+          {checkAuth === false && <p>Senha incorreta</p>}
           <Button onClickSubmit={handleSubmit} text="Entrar" full />
         </LoginForm>
         <ForgotAccount>

@@ -22,6 +22,11 @@ export const Content = styled.div`
 export const LoginForm = styled.form`
   text-align: center;
   align-items: center;
+  p {
+    padding-bottom: 20px;
+    font-size: 14px;
+    color: red;
+  }
 `;
 
 export const LoginTitle = styled.h2`
