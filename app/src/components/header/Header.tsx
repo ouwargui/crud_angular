@@ -17,18 +17,18 @@ const Header: React.FC = () => {
       <Content>
         <LeftItemsContainer>
           <MenuLinks to="/">
-            <NavbarItems>Home</NavbarItems>
+            <NavbarItems>Menu</NavbarItems>
           </MenuLinks>
           <MenuLinks to="/">
-            <NavbarItems>Tasks</NavbarItems>
+            <NavbarItems>Tarefas</NavbarItems>
           </MenuLinks>
           <MenuLinks to="/">
-            <NavbarItems>History</NavbarItems>
+            <NavbarItems>Histórico</NavbarItems>
           </MenuLinks>
         </LeftItemsContainer>
         <RightItemsContainer>
           <Logout to="/">
-            <NavbarItemsRight>Sign out</NavbarItemsRight>
+            <NavbarItemsRight>Sair</NavbarItemsRight>
             <HiOutlineLogout size="40px" />
           </Logout>
         </RightItemsContainer>

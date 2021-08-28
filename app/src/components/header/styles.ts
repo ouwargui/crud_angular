@@ -53,6 +53,7 @@ export const Logout = styled(Link)`
   align-items: center;
   text-decoration: none;
   color: #333;
+  padding-right: 10px;
 
   &:focus,
   &:visited,
