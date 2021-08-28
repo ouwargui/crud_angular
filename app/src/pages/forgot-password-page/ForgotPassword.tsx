@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
 import {HiOutlineKey, HiOutlineMail} from 'react-icons/hi';
-import {Link, useHistory} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import Button from '../../components/buttons/Button';
 import Input from '../../components/inputs/Input';
 import {userUpdatePassword} from '../../services/user';
 import {
   Container,
   Content,
+  FooterLinks,
   ForgotAccount,
   LoginForm,
   LoginTitle,
@@ -73,10 +74,12 @@ const ForgotPassword: React.FC = () => {
             type="submit"
             text="Redefinir"
             full
+            color="#ff7a91"
+            backgroundColor="#ff4e6d"
           />
         </LoginForm>
         <ForgotAccount>
-          <Link to="/">Lembrou a senha?</Link>
+          <FooterLinks to="/">Lembrou a senha?</FooterLinks>
         </ForgotAccount>
       </Content>
     </Container>

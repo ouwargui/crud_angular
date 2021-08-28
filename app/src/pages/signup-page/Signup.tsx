@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import {HiOutlineKey, HiOutlineMail, HiOutlineUser} from 'react-icons/hi';
-import {Link} from 'react-router-dom';
 import Button from '../../components/buttons/Button';
 import Input from '../../components/inputs/Input';
 import {insertUser} from '../../services/user';
 import {
   Container,
   Content,
+  FooterLinks,
   ForgotAccount,
   LoginForm,
   LoginTitle,
@@ -70,10 +70,12 @@ const Signup: React.FC = () => {
                 type="submit"
                 text="Cadastrar"
                 full
+                color="#ff7a91"
+                backgroundColor="#ff4e6d"
               />
             </LoginForm>
             <ForgotAccount>
-              <Link to="/">Já tem uma conta?</Link>
+              <FooterLinks to="/">Já tem uma conta?</FooterLinks>
             </ForgotAccount>
           </Content>
         </>
@@ -87,7 +89,7 @@ const Signup: React.FC = () => {
         <Content>
           <LoginTitle>Cadastro realizado com sucesso</LoginTitle>
           <SignedTitle>
-            <Link to="/">Clique aqui para fazer o login</Link>
+            <FooterLinks to="/">Clique aqui para fazer o login</FooterLinks>
           </SignedTitle>
         </Content>
       </>

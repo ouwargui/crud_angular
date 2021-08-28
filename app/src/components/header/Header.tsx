@@ -8,6 +8,7 @@ import {
   NavbarItemsRight,
   RightItemsContainer,
   Logout,
+  MenuLinks,
 } from './styles';
 
 const Header: React.FC = () => {
@@ -15,9 +16,15 @@ const Header: React.FC = () => {
     <Container>
       <Content>
         <LeftItemsContainer>
-          <NavbarItems>Home</NavbarItems>
-          <NavbarItems>Tasks</NavbarItems>
-          <NavbarItems>History</NavbarItems>
+          <MenuLinks to="/">
+            <NavbarItems>Home</NavbarItems>
+          </MenuLinks>
+          <MenuLinks to="/">
+            <NavbarItems>Tasks</NavbarItems>
+          </MenuLinks>
+          <MenuLinks to="/">
+            <NavbarItems>History</NavbarItems>
+          </MenuLinks>
         </LeftItemsContainer>
         <RightItemsContainer>
           <Logout to="/">

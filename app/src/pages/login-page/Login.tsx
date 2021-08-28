@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
-import {Link, useHistory} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import {HiOutlineKey, HiOutlineMail} from 'react-icons/hi';
 import Input from '../../components/inputs/Input';
 import {
   Container,
   Content,
+  FooterLinks,
   ForgotAccount,
   LoginForm,
   LoginTitle,
@@ -56,14 +57,16 @@ const Login: React.FC = () => {
             type="submit"
             text="Entrar"
             full
+            color="#ff7a91"
+            backgroundColor="#ff4e6d"
           />
         </LoginForm>
         <ForgotAccount>
           <p>
-            <Link to="/reset-password">Esqueceu a senha?</Link>
+            <FooterLinks to="/reset-password">Esqueceu a senha?</FooterLinks>
           </p>
           <p>
-            <Link to="/signup">Criar nova conta</Link>
+            <FooterLinks to="/signup">Criar nova conta</FooterLinks>
           </p>
         </ForgotAccount>
       </Content>

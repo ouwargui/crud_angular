@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -48,5 +49,21 @@ export const ForgotAccount = styled.span`
   font-size: 14px;
   p {
     padding: 10px;
+  }
+`;
+
+export const FooterLinks = styled(Link)`
+  color: #333;
+  text-decoration: none;
+
+  &:focus,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+  }
+  &:hover {
+    text-decoration: #ff7a91;
+    color: #ff7a91;
   }
 `;

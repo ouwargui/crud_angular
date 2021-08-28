@@ -51,8 +51,33 @@ export const Logout = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
+  color: #333;
 
-  a:visited {
+  &:focus,
+  &:visited,
+  &:link,
+  &:active {
     text-decoration: none;
+  }
+  &:hover {
+    text-decoration: #ff7a91;
+    color: #ff7a91;
+  }
+`;
+
+export const MenuLinks = styled(Link)`
+  color: #333;
+  text-decoration: none;
+
+  &:focus,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+  }
+  &:hover {
+    text-decoration: #ff7a91;
+    color: #ff7a91;
   }
 `;

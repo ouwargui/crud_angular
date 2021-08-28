@@ -6,11 +6,23 @@ export interface ButtonParams {
   text: string;
   type?: string;
   onClickSubmit: () => any;
+  color?: string;
+  backgroundColor?: string;
 }
 
-const Button: React.FC<ButtonParams> = ({full, text, onClickSubmit}) => {
+const Button: React.FC<ButtonParams> = ({
+  backgroundColor,
+  color,
+  full,
+  text,
+  onClickSubmit,
+}) => {
   return (
-    <Container onClick={() => onClickSubmit()} full={full}>
+    <Container
+      onClick={() => onClickSubmit()}
+      full={full}
+      color={color}
+      backgroundColor={backgroundColor}>
       {text}
     </Container>
   );

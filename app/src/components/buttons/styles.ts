@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 interface ButtonParams {
   full: boolean;
+  color: string | undefined;
+  backgroundColor: string | undefined;
 }
 
 export const Container = styled.button<ButtonParams>`
@@ -11,7 +13,7 @@ export const Container = styled.button<ButtonParams>`
   border-radius: 4px;
   padding: 8px 16px;
   outline: none;
-  background-color: #2f8bfd;
+  background-color: ${(props) => (props.color ? props.color : '#2f8bfd')};
   color: #ffffff;
   font-size: 0.875rem;
   font-weight: 500;
@@ -20,6 +22,7 @@ export const Container = styled.button<ButtonParams>`
   cursor: pointer;
   transition: all 0.2s;
   &:hover {
-    background-color: #0072f0;
+    background-color: ${(props) =>
+      props.backgroundColor ? props.backgroundColor : '#0072f0'};
   }
 `;

@@ -6,7 +6,7 @@ import Header from '../../components/header/Header';
 const Home: React.FC = () => {
   return (
     <Container>
-      <Header>a</Header>
+      <Header />
     </Container>
   );
 };
