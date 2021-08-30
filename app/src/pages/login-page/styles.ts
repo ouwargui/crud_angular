@@ -40,6 +40,10 @@ export const PageHeader = styled.a`
   font-weight: 600;
   margin: 40px 0;
   color: inherit;
+
+  &:hover {
+    color: #ff7a91;
+  }
 `;
 
 export const ForgotAccount = styled.span`
@@ -63,7 +67,6 @@ export const FooterLinks = styled(Link)`
     text-decoration: none;
   }
   &:hover {
-    text-decoration: #ff7a91;
     color: #ff7a91;
   }
 `;

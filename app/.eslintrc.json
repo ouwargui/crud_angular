@@ -19,6 +19,7 @@
   },
   "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier"],
   "rules": {
+    "max-classes-per-file": "off",
     "import/no-unresolved": "error",
     "react/jsx-filename-extension": [
       2,

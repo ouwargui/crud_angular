@@ -24,6 +24,6 @@ export const StyledInput = styled.input`
     color: #dedede;
   }
   &:focus {
-    box-shadow: 0 0 0 2px rgb(169, 172, 255, 0.5);
+    box-shadow: 0 0 0 2px rgba(255, 122, 145, 0.7);
   }
 `;

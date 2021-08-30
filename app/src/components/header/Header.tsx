@@ -11,19 +11,23 @@ import {
   MenuLinks,
 } from './styles';
 
-const Header: React.FC = () => {
+interface HeaderParams {
+  page: string;
+}
+
+const Header: React.FC<HeaderParams> = ({page}) => {
   return (
     <Container>
       <Content>
         <LeftItemsContainer>
-          <MenuLinks to="/">
-            <NavbarItems>Menu</NavbarItems>
+          <MenuLinks isLinkDisabled={page === 'home'} to="/home">
+            <NavbarItems>Home</NavbarItems>
           </MenuLinks>
-          <MenuLinks to="/">
-            <NavbarItems>Tarefas</NavbarItems>
+          <MenuLinks isLinkDisabled={page === 'snkrs'} to="/">
+            <NavbarItems>Sneakers</NavbarItems>
           </MenuLinks>
-          <MenuLinks to="/">
-            <NavbarItems>Histórico</NavbarItems>
+          <MenuLinks isLinkDisabled={page === 'sports'} to="/">
+            <NavbarItems>Esportes</NavbarItems>
           </MenuLinks>
         </LeftItemsContainer>
         <RightItemsContainer>

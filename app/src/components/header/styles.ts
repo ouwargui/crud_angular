@@ -1,6 +1,10 @@
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
+interface MenuLinksParams {
+  isLinkDisabled: boolean;
+}
+
 export const Container = styled.header`
   display: flex;
   align-items: center;
@@ -67,9 +71,11 @@ export const Logout = styled(Link)`
   }
 `;
 
-export const MenuLinks = styled(Link)`
+export const MenuLinks = styled(Link)<MenuLinksParams>`
   color: #333;
   text-decoration: none;
+
+  pointer-events: ${(props) => (props.isLinkDisabled ? 'none' : 'full')};
 
   &:focus,
   &:visited,
