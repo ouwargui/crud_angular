@@ -27,3 +27,5 @@ requirements_raw.txt
 *.db
 
 __pycache__/
+
+*.env

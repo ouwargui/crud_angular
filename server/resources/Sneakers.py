@@ -1,6 +1,6 @@
 from flask import request, jsonify, make_response
 from flask_restful import Resource
-import random
+import random, time
 
 from models.sneaker import SneakerModel
 
@@ -37,7 +37,6 @@ class Sneaker(Resource):
 class SneakerId(Resource):
   def post(self):
     data = request.get_json(force=True)
-    print(data)
 
     id = data["id"]
 
