@@ -63,7 +63,7 @@ const Home: React.FC = () => {
                 imageUrl={sneaker.image}
                 mediaTitle="teste"
                 contentDescription={sneaker.name}
-                price={`US$ ${sneaker.retailPrice},99`}
+                price={`R$ ${(sneaker.retailPrice * 5.17).toFixed(2)}`}
               />
             </CardWrapper>
           ))}
