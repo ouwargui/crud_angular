@@ -1,11 +1,13 @@
 from flask import request, jsonify, make_response
 from flask_restful import Resource
+import random
 
 from models.sneaker import SneakerModel
 
 class SneakerList(Resource):
   def get(self):
     sneaker_list = SneakerModel.find_all()
+    random.shuffle(sneaker_list)
     sneaker_list_json = [sneaker.to_json() for sneaker in sneaker_list]
 
     response = make_response(jsonify(status=200, success=True, sneaker_list=sneaker_list_json))

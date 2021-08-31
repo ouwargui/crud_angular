@@ -1,35 +1,25 @@
 import React from 'react';
-import {makeStyles, Theme, createStyles} from '@material-ui/core/styles';
+import {makeStyles, createStyles} from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
 import Typography from '@material-ui/core/Typography';
-import {red} from '@material-ui/core/colors';
-import {PriceWrapper} from './styles';
+import {CardActionArea} from '@material-ui/core';
+import {Link} from 'react-router-dom';
+import {Content, ContentWrapper} from './styles';
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
     root: {
-      maxWidth: 345,
+      width: '100%',
+      height: '100%',
+      display: 'flex',
     },
     media: {
-      height: 0,
-      paddingTop: '56.25%', // 16:9
+      // paddingTop: '56.25%', // 16:9
     },
-    expand: {
-      transform: 'rotate(0deg)',
-      marginLeft: 'auto',
-      transition: theme.transitions.create('transform', {
-        duration: theme.transitions.duration.shortest,
-      }),
-    },
-    expandOpen: {
-      transform: 'rotate(180deg)',
-    },
-    avatar: {
-      backgroundColor: red[500],
+    action: {
+      height: '100%',
     },
   }),
 );
@@ -41,6 +31,7 @@ interface ItemCardParams {
   mediaTitle: string;
   contentDescription: string;
   price: string;
+  id: number;
 }
 
 const ItemCard: React.FC<ItemCardParams> = ({
@@ -50,27 +41,35 @@ const ItemCard: React.FC<ItemCardParams> = ({
   mediaTitle,
   contentDescription,
   price,
+  id,
 }) => {
   const classes = useStyles();
 
   return (
     <Card className={classes.root}>
-      <CardHeader title={headerTitle} subheader={headerSubtitle} />
-      <CardMedia
-        className={classes.media}
-        image={imageUrl}
-        title={mediaTitle}
-      />
-      <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
-          {contentDescription}
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <PriceWrapper>
-          <Typography paragraph>{price}</Typography>
-        </PriceWrapper>
-      </CardActions>
+      <CardActionArea component={Link} to={`/sneakers/${id}`}>
+        <ContentWrapper>
+          <CardHeader title={headerTitle} subheader={headerSubtitle} />
+          <CardMedia
+            className={classes.media}
+            image={imageUrl}
+            title={mediaTitle}
+            component="img"
+          />
+          <Content>
+            <Typography
+              paragraph
+              variant="body1"
+              color="textSecondary"
+              component="p">
+              {contentDescription}
+            </Typography>
+            <Typography variant="h4" color="textSecondary" component="p">
+              {price}
+            </Typography>
+          </Content>
+        </ContentWrapper>
+      </CardActionArea>
     </Card>
   );
 };

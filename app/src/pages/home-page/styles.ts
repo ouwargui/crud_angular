@@ -9,11 +9,9 @@ export const Content = styled.div`
 `;
 
 export const MainContainer = styled.main`
-  flex-grow: 1;
   display: grid;
-  flex-direction: row;
   color: #9e89b8;
-  grid-template-columns: repeat(4, auto);
+  grid-template-columns: repeat(3, auto);
   min-height: 350px;
 `;
 

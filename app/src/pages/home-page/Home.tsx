@@ -58,10 +58,11 @@ const Home: React.FC = () => {
           {sneakers.map((sneaker) => (
             <CardWrapper key={sneaker.id}>
               <ItemCard
+                id={sneaker.id}
                 headerTitle={sneaker.brand}
                 headerSubtitle={sneaker.releaseDate}
                 imageUrl={sneaker.image}
-                mediaTitle="teste"
+                mediaTitle={sneaker.name}
                 contentDescription={sneaker.name}
                 price={`R$ ${(sneaker.retailPrice * 5.17).toFixed(2)}`}
               />
