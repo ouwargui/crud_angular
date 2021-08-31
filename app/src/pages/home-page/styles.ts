@@ -10,15 +10,16 @@ export const Content = styled.div`
 
 export const MainContainer = styled.main`
   flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 350px;
+  display: grid;
+  flex-direction: row;
   color: #9e89b8;
+  grid-template-columns: repeat(4, auto);
+  min-height: 350px;
 `;
 
-export const MainContent = styled.div`
+export const CardWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 20px;
 `;

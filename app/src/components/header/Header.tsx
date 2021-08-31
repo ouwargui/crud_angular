@@ -23,10 +23,10 @@ const Header: React.FC<HeaderParams> = ({page}) => {
           <MenuLinks isLinkDisabled={page === 'home'} to="/home">
             <NavbarItems>Home</NavbarItems>
           </MenuLinks>
-          <MenuLinks isLinkDisabled={page === 'snkrs'} to="/">
+          <MenuLinks isLinkDisabled={page === 'snkrs'} to="/sneakers">
             <NavbarItems>Sneakers</NavbarItems>
           </MenuLinks>
-          <MenuLinks isLinkDisabled={page === 'sports'} to="/">
+          <MenuLinks isLinkDisabled={page === 'sports'} to="/sports">
             <NavbarItems>Esportes</NavbarItems>
           </MenuLinks>
         </LeftItemsContainer>
