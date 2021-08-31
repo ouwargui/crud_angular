@@ -4,7 +4,6 @@ import {Container, Content, MainContainer, CardWrapper} from './styles';
 import Header from '../../components/header/Header';
 import ItemCard from '../../components/item-card/ItemCard';
 import {getSneakers} from '../../services/sneakers';
-import Sneakers from '../../models/sneakers';
 import Sneaker from '../../models/sneaker';
 
 const Home: React.FC = () => {
