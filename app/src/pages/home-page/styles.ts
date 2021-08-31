@@ -23,3 +23,11 @@ export const CardWrapper = styled.div`
   align-items: center;
   margin: 20px;
 `;
+
+export const LoaderContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  width: 100vw;
+`;

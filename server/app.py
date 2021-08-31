@@ -4,6 +4,7 @@ from flask_restful import Api
 from database.db import db
 
 from resources.User import User, UserList, UserAuthentication, UpdateUser
+from resources.Sneakers import Sneaker, SneakerList
 
 app = Flask(__name__)
 bluePrint = Blueprint('api', __name__, url_prefix='/api')
@@ -30,6 +31,8 @@ api.add_resource(User, '/user')
 api.add_resource(UserList, '/users')
 api.add_resource(UserAuthentication, '/authenticate')
 api.add_resource(UpdateUser, '/user/update')
+api.add_resource(Sneaker, '/sneaker')
+api.add_resource(SneakerList, '/sneakers')
 
 if __name__ == '__main__':
     db.init_app(app)

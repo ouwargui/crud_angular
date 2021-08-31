@@ -1,5 +1,13 @@
 import React, {useEffect, useState} from 'react';
-import {Container, Content, MainContainer, CardWrapper} from './styles';
+import Loader from 'react-loader-spinner';
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
+import {
+  Container,
+  Content,
+  MainContainer,
+  CardWrapper,
+  LoaderContainer,
+} from './styles';
 
 import Header from '../../components/header/Header';
 import ItemCard from '../../components/item-card/ItemCard';
@@ -12,14 +20,34 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     getSneakers().then((res: any) => {
-      setSneakers(res.data.results);
-      console.log(sneakers);
+      const filteredSneakers: Sneaker[] = res.data.sneaker_list.filter(
+        (sneaker: Sneaker) =>
+          sneaker.brand &&
+          sneaker.image &&
+          sneaker.name &&
+          sneaker.releaseDate &&
+          sneaker.retailPrice,
+      );
+      setSneakers(filteredSneakers);
       setIsLoading(false);
     });
   }, []);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <>
+        <Header page="home" />
+        <LoaderContainer>
+          <Loader
+            type="TailSpin"
+            color="#ff7a91"
+            height={100}
+            width={100}
+            timeout={undefined}
+          />
+        </LoaderContainer>
+      </>
+    );
   }
 
   return (
@@ -28,11 +56,11 @@ const Home: React.FC = () => {
       <Content>
         <MainContainer>
           {sneakers.map((sneaker) => (
-            <CardWrapper>
+            <CardWrapper key={sneaker.id}>
               <ItemCard
                 headerTitle={sneaker.brand}
                 headerSubtitle={sneaker.releaseDate}
-                imageUrl={sneaker.image.original}
+                imageUrl={sneaker.image}
                 mediaTitle="teste"
                 contentDescription={sneaker.name}
                 price={`US$ ${sneaker.retailPrice},99`}
