@@ -33,3 +33,17 @@ class Sneaker(Resource):
     response = make_response(jsonify(status=200, success=True))
 
     return response
+
+class SneakerId(Resource):
+  def post(self):
+    data = request.get_json(force=True)
+    print(data)
+
+    id = data["id"]
+
+    sneaker = SneakerModel.find_by_id(id)
+    sneaker_json = sneaker.to_json()
+
+    response = make_response(jsonify(status=200, success=True, sneaker_detail=sneaker_json))
+
+    return response

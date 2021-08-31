@@ -29,6 +29,10 @@ class SneakerModel(db.Model):
   def find_by_brand(cls, brand) -> List["SneakerModel"]:
     return cls.query.filter_by(brand=brand)
 
+  @classmethod
+  def find_by_id(cls, id) -> "SneakerModel":
+    return cls.query.filter_by(id=id).first()
+
   def save_to_db(self) -> None:
     db.session.add(self)
     db.session.commit()

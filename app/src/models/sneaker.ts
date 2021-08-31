@@ -1,4 +1,4 @@
-export default interface Sneaker {
+export default interface SneakerModel {
   id: number;
   brand: string;
   name: string;

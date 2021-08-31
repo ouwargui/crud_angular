@@ -12,16 +12,16 @@ import {
 import Header from '../../components/header/Header';
 import ItemCard from '../../components/item-card/ItemCard';
 import {getSneakers} from '../../services/sneakers';
-import Sneaker from '../../models/sneaker';
+import SneakerModel from '../../models/sneaker';
 
 const Home: React.FC = () => {
-  const [sneakers, setSneakers] = useState<Sneaker[]>([]);
+  const [sneakers, setSneakers] = useState<SneakerModel[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getSneakers().then((res: any) => {
-      const filteredSneakers: Sneaker[] = res.data.sneaker_list.filter(
-        (sneaker: Sneaker) =>
+      const filteredSneakers: SneakerModel[] = res.data.sneaker_list.filter(
+        (sneaker: SneakerModel) =>
           sneaker.brand &&
           sneaker.image &&
           sneaker.name &&

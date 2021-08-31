@@ -47,7 +47,7 @@ const ItemCard: React.FC<ItemCardParams> = ({
 
   return (
     <Card className={classes.root}>
-      <CardActionArea component={Link} to={`/sneakers/${id}`}>
+      <CardActionArea component={Link} to={`/sneakers/sneaker?id=${id}`}>
         <ContentWrapper>
           <CardHeader title={headerTitle} subheader={headerSubtitle} />
           <CardMedia
