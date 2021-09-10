@@ -5,7 +5,16 @@ import Header from '../../components/header/Header';
 import SneakerModel from '../../models/sneaker';
 import {getSneakerById} from '../../services/sneakers';
 import {LoaderContainer} from '../home-page/styles';
-import {Container} from './styles';
+import {
+  Container,
+  Content,
+  ItemContainer,
+  ImageContainer,
+  SneakerImage,
+  DetailsContainer,
+  SneakerBrand,
+  SneakerName,
+} from './styles';
 
 const Sneaker: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -40,16 +49,25 @@ const Sneaker: React.FC = () => {
   return (
     <Container>
       <Header page="" />
-      {selectedSneaker && (
-        <>
-          <div>{selectedSneaker.brand}</div>
-          <div>{selectedSneaker.id}</div>
-          <div>{selectedSneaker.image}</div>
-          <div>{selectedSneaker.name}</div>
-          <div>{selectedSneaker.releaseDate}</div>
-          <div>{selectedSneaker.retailPrice}</div>
-        </>
-      )}
+      <ItemContainer>
+        <Content>
+          {selectedSneaker && (
+            <>
+              <ImageContainer>
+                <SneakerImage src={selectedSneaker.image} />
+              </ImageContainer>
+              <DetailsContainer>
+                <SneakerName>
+                  <div>{selectedSneaker.name}</div>
+                  <SneakerBrand>{selectedSneaker.brand}</SneakerBrand>
+                </SneakerName>
+                <div>{selectedSneaker.releaseDate}</div>
+                <div>{selectedSneaker.retailPrice}</div>
+              </DetailsContainer>
+            </>
+          )}
+        </Content>
+      </ItemContainer>
     </Container>
   );
 };
